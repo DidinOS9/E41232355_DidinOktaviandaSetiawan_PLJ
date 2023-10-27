@@ -35,11 +35,18 @@ class LoginController extends Controller
      * @return void
      */
     public function login(Request $request)
-    {
+{
+
+        $messages = [
+            'required' => 'Input :attribute wajib diisi!',
+            'min' => 'Input :attribute harus diisi minimal :min karakter!',
+            'max' => 'Input :attribute harus diisi minimal :max karakter!',
+        ];
+
         $this->validate($request, [
-            'username' => 'required|string',
+            'username' => 'required|string|min:5',
             'password' => 'required|string|min:6'
-        ]);
+        ], $messages);
 
         $loginType = filter_var($request->username, FILTER_VALIDATE_EMAIL) ? 'email' : 'username';
 

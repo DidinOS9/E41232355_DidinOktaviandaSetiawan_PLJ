@@ -9,6 +9,8 @@ class DashboardController extends Controller
 {
     public function index()
     {
+        // abort(500);
+        abort(403);
         return view('backend.dashboard');
     }
 }

@@ -5,6 +5,7 @@ use App\Http\Controllers\Backend\PengalamanKerjaController;
 use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\managementUserController;
 use App\Http\Controllers\Backend\PendidikanController;
+use App\Http\Controllers\SessionController;
 use App\Http\Middleware\CheckAge;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -65,6 +66,10 @@ Route::group(['namespace' => 'Backend'], function(){
     Route::resource('/pendidikan', PendidikanController::class);
     Route::resource('/pengalaman_kerja', PengalamanKerjaController::class);
 });
+
+Route::get('/session/create', 'SessionController@create');
+Route::get('/session/show', 'SessionController@show');
+Route::get('/session/delete', 'SessionController@delete');
 
 Auth::routes();
 
