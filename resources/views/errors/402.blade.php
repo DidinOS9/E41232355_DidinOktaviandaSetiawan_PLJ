@@ -1,4 +1,4 @@
-@extends('errors::minimal')
+@extends('errors::pages-error')
 
 @section('title', __('Payment Required'))
 @section('code', '402')
