@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('pendidikan', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('nama');
-            $table->tinyInteger('tingkatan');
+            $table->integer('tingkatan');
             $table->year('tahun_masuk');
             $table->year('tahun_keluar');
             $table->timestamps();

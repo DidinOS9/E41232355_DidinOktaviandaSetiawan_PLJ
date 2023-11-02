@@ -35,11 +35,14 @@ class PendidikanController extends Controller
 
     public function update(Request $request, Pendidikan $pendidikan)
     {
-        $pendidikan->update($request->all());
-
+        $input = $request->all();
+        // Ubah input 'tingkatan' menjadi bilangan bulat jika perlu
+        $input['tingkatan'] = intval($input['tingkatan']);
+        $pendidikan->update($input);
         return redirect()->route('pendidikan.index')
-        ->with('success', 'Pendidikan Berhasil diperbaharui');
+            ->with('success', 'Pendidikan Berhasil diperbaharui');
     }
+
 
     public function destroy(Pendidikan $pendidikan)
     {
